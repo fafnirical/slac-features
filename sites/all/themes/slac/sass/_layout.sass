@@ -1,6 +1,7 @@
 .content .general-two-col
   &:not(.reverse) .general-left,
   &.reverse .general-right,
+  .section-basic-page-no-left-nav-and-right-column &,
   .right-sidebar
     ul,
     ol
@@ -1254,12 +1255,17 @@ h2
 
 
 .panel-pane
-  .general-right &
+  .content .general-right &
+    background-color: $bg-col-1
     margin-bottom: 18px
     padding: 13px 22px
     &:last-child
       margin-bottom: 0
       //text-align: center
+
+.panel-pane
+  .content .with-left .general-right &
+    background-color: inherit
 
   .inner_right &
     margin-bottom: 20px
@@ -3225,9 +3231,10 @@ h2
             top: 50%
             margin-top: -10px
   .pane-body-grey-background-style,
-  .right-sidebar .fieldable-panels-pane
-    background: #f4f4f4
-  .general-right .panel-pane > .view
+  .right-sidebar .fieldable-panels-pane,
+  .general-right .contextual-links-region,
+  .general-right .panel-pane > .view,
+  .general-right .pane-custom .custom-content
     background: #f4f4f4
 
   .pane-page-content .reverse .general-right .panel-pane > .view
@@ -3256,6 +3263,10 @@ h2
       .project-description
         a
           color: #fff
+
+  .content .general-right .panel-pane
+    background-color: inherit
+
   .content .general-right
     .event-block
       padding-left: 55px
