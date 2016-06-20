@@ -160,7 +160,7 @@ function landing_page_form_alter(&$form, &$form_state, $form_id) {
  * If it is of type landing_page and checkbox to override the deafult css is on.
  * Unset the default CSS.
  */
-/*function landing_page_css_alter(&$css) {
+function landing_page_css_alter(&$css) {
   if ((arg(0) == 'node') && (is_numeric(arg(1))) && (arg(2) == '')) {
     $node = node_load(arg(1));
     if ($node->type == 'landing_page') {
@@ -175,7 +175,7 @@ function landing_page_form_alter(&$form, &$form_state, $form_id) {
       }
     }
   }
-}*/
+}
 
 /**
  * Implements hook_js_alter().
@@ -186,7 +186,7 @@ function landing_page_form_alter(&$form, &$form_state, $form_id) {
  * If it is of type landing_page and checkbox to override the deafult js is on.
  * Unset the default JS.
  */
-/*function landing_page_js_alter(&$js) {
+function landing_page_js_alter(&$js) {
   if ((arg(0) == 'node') && (is_numeric(arg(1))) && (arg(2) == '')) {
     $node = node_load(arg(1));
     if ($node->type == 'landing_page') {
@@ -201,7 +201,7 @@ function landing_page_form_alter(&$form, &$form_state, $form_id) {
       }
     }
   }
-}*/
+}
 
 /**
  * Implements hook_preprocess_page().
@@ -225,15 +225,14 @@ function landing_page_preprocess_page(&$variables) {
 /**
  * Implements hook_preprocess_html().
  */
-/*function landing_page_preprocess_html(&$variables) {
+function landing_page_preprocess_html(&$variables) {
   if ((arg(0) == 'node') && (is_numeric(arg(1))) && (arg(2) == '')) {
-
     // Load the node values into $fields_array
     $fields_array = $variables['page']['content']['system_main']['nodes'][arg(1)];
-      dpr($fields_array);
+
     // If field_css key exists, check does it has any values.
     // If it has then add it to header.
-    if (array_key_exists('field_css', $fields_array['body']['#object'][0])) {
+    if (array_key_exists('field_css', $fields_array['body']['#object'])) {
       $custom_css_language = field_language('node', $fields_array['body']['#object'], 'field_css');
       if (isset($fields_array['body']['#object']->field_css[$custom_css_language][0]['value'])) {
         $inline_css = $fields_array['body']['#object']->field_css[$custom_css_language][0]['value'];
@@ -248,7 +247,7 @@ function landing_page_preprocess_page(&$variables) {
 
     // If field_header_js key exists, check does it has any values.
     // If it has then add it to header.
-    if (array_key_exists('field_header_js', $fields_array['body']['#object'][0])) {
+    if (array_key_exists('field_header_js', $fields_array['body']['#object'])) {
       $custom_header_js_language = field_language('node', $fields_array['body']['#object'], 'field_header_js');
       if (isset($fields_array['body']['#object']->field_header_js[$custom_header_js_language][0]['value'])) {
         $inline_header_js = $fields_array['body']['#object']->field_header_js[$custom_header_js_language][0]['value'];
@@ -272,7 +271,7 @@ function landing_page_preprocess_page(&$variables) {
       }
     }
   }
-}*/
+}
 
 /**
  * Implements hook_element_info_alter().

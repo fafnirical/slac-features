@@ -29,7 +29,7 @@ function slac_event_view_toggle_pane_edit_form($form, &$form_state) {
 function slac_event_view_toggle_pane_render($subtype, $conf, $args, $context) {
   $block = new stdClass();
   $block->title = '';
-  $block->content .= slac_event_view_toggle_render($context);
+  $block->content = slac_event_view_toggle_render($context);
   return $block;
 }
 
